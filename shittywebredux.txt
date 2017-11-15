@@ -1,0 +1,45 @@
+const reducer = (
+  
+  state = [
+    { ubicacion: '', active: false},
+   	{especie:'', active: false}
+], action) => {
+  
+	if(action.type == 'add_ubicacion'){
+    
+    return [ ...state, {ubicacion:'ad', especie: true}]
+  }else if(action.type == 'add_ubic'){
+    
+     return [ ...state, action.payload]
+  }else if(action.type == 'add_ubic2'){
+  	  return [ ...state, action.payload]
+  }
+
+	return state
+}
+
+const store = Redux.createStore(reducer)
+
+const action = {
+	type: 'add_ubicacion',
+  payload: ['addad', true]
+
+}
+
+const action2 = {
+	type: 'add_ubic',
+  payload: {ubicacion:'addad',active:true}
+
+}
+const action3 = {
+	type: 'add_ubic2',
+  payload: {especie:'213123',active:true}
+
+}
+store.dispatch(action)
+
+store.dispatch(action3)
+
+
+store.getState()
+
